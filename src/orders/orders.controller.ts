@@ -11,14 +11,14 @@ export class OrdersController {
   create(@Payload() createOrderDto: CreateOrderDto) {
     return this.ordersService.create(createOrderDto);
   }
-
+  
   @MessagePattern('findAllOrders')
   findAll() {
     return this.ordersService.findAll();
   }
 
   @MessagePattern('findOneOrder')
-  findOne(@Payload() id: number) {
+  findOne(@Payload('id') id: number) {
     return this.ordersService.findOne(id);
   }
 
